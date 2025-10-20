@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using MySqlConnector;
 
@@ -10,7 +11,24 @@ namespace POS
         public MaintenanceForm()
         {
             InitializeComponent();
+            
+            // Ensure the user icon is set properly
+            try
+            {
+                // Make sure the PictureBox image is set
+                IcoUser.Image = Properties.Resources.User;
+                IcoUser.SizeMode = PictureBoxSizeMode.StretchImage;
+                IcoUser.Visible = true;
+                IcoUser.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading user icon: " + ex.Message);
+            }
+            
             LoadAllData();
+            ShowPanel(pnlUsers); // Show Users panel by default
+            SetActiveButton(btnNavUsers); // Highlight Users button by default
         }
 
         private void LoadAllData()
@@ -19,6 +37,65 @@ namespace POS
             LoadCategories();
             LoadSuppliers();
             LoadItems();
+        }
+
+        // Navigation methods for sidebar
+        private void btnNavUsers_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(btnNavUsers);
+            ShowPanel(pnlUsers);
+        }
+
+        private void btnNavCategory_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(btnNavCategory);
+            ShowPanel(pnlCategory);
+        }
+
+        private void btnNavSupplier_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(btnNavSupplier);
+            ShowPanel(pnlSupplier);
+        }
+
+        private void btnNavItems_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(btnNavItems);
+            ShowPanel(pnlItems);
+        }
+
+        // Back button to return to main form
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // Helper method to show selected panel and hide others
+        private void ShowPanel(Panel panelToShow)
+        {
+            pnlUsers.Visible = false;
+            pnlCategory.Visible = false;
+            pnlSupplier.Visible = false;
+            pnlItems.Visible = false;
+
+            panelToShow.Visible = true;
+            panelToShow.BringToFront();
+        }
+
+        // Helper method to highlight active button
+        private void SetActiveButton(Button activeButton)
+        {
+            Color defaultColor = Color.FromArgb(52, 73, 94);
+            Color activeColor = Color.FromArgb(41, 128, 185);
+
+            // Reset all buttons
+            btnNavUsers.BackColor = defaultColor;
+            btnNavCategory.BackColor = defaultColor;
+            btnNavSupplier.BackColor = defaultColor;
+            btnNavItems.BackColor = defaultColor;
+
+            // Set active button
+            activeButton.BackColor = activeColor;
         }
 
         // USERS TAB
@@ -205,9 +282,10 @@ namespace POS
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-        private void MaintenanceForm_FormClosed(object sender, FormClosedEventArgs e)
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Application.Exit(); // Forces all message loops to end and closes the app
+            // Handle cell click if needed
         }
     }
 }

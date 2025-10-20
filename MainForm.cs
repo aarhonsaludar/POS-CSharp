@@ -34,10 +34,13 @@
 
             }
 
-            private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-            {
-                Application.Exit(); // Forces all message loops to end and closes the app
-            }
+            
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            Application.Exit(); // Ensures the application exits when the main form is closed
+        }
+
 
         }
     }
