@@ -24,6 +24,8 @@
         internal System.Windows.Forms.TextBox txtUserUsername;
         internal System.Windows.Forms.TextBox txtUserPassword;
         internal System.Windows.Forms.Button btnAddUser;
+        internal System.Windows.Forms.Button btnEditUser;
+        internal System.Windows.Forms.Button btnDeleteUser;
         internal System.Windows.Forms.Label lblUserUsername;
         internal System.Windows.Forms.Label lblUserPassword;
 
@@ -31,6 +33,8 @@
         internal System.Windows.Forms.DataGridView dgvCategory;
         internal System.Windows.Forms.TextBox txtCategoryName;
         internal System.Windows.Forms.Button btnAddCategory;
+        internal System.Windows.Forms.Button btnEditCategory;
+        internal System.Windows.Forms.Button btnDeleteCategory;
         internal System.Windows.Forms.Label lblCategoryName;
 
         // Supplier Tab Controls
@@ -39,6 +43,8 @@
         internal System.Windows.Forms.TextBox txtSupplierAddress;
         internal System.Windows.Forms.TextBox txtSupplierContact;
         internal System.Windows.Forms.Button btnAddSupplier;
+        internal System.Windows.Forms.Button btnEditSupplier;
+        internal System.Windows.Forms.Button btnDeleteSupplier;
         internal System.Windows.Forms.Label lblSupplierName;
         internal System.Windows.Forms.Label lblSupplierAddress;
         internal System.Windows.Forms.Label lblSupplierContact;
@@ -50,6 +56,8 @@
         internal System.Windows.Forms.TextBox txtItemPrice;
         internal System.Windows.Forms.NumericUpDown nudInitialStock;
         internal System.Windows.Forms.Button btnAddItem;
+        internal System.Windows.Forms.Button btnEditItem;
+        internal System.Windows.Forms.Button btnDeleteItem;
         internal System.Windows.Forms.Label lblItemName;
         internal System.Windows.Forms.Label lblItemCategory;
         internal System.Windows.Forms.Label lblItemPrice;
@@ -72,12 +80,13 @@
             this.btnNavSupplier = new System.Windows.Forms.Button();
             this.btnNavCategory = new System.Windows.Forms.Button();
             this.btnNavUsers = new System.Windows.Forms.Button();
-            this.IcoUser = new System.Windows.Forms.PictureBox();
             this.lblSidebarTitle = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlUsers = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnEditUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.lblUserPassword = new System.Windows.Forms.Label();
@@ -85,11 +94,15 @@
             this.lblUserUsername = new System.Windows.Forms.Label();
             this.pnlCategory = new System.Windows.Forms.Panel();
             this.dgvCategory = new System.Windows.Forms.DataGridView();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
+            this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.pnlSupplier = new System.Windows.Forms.Panel();
             this.dgvSupplier = new System.Windows.Forms.DataGridView();
+            this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.btnEditSupplier = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.txtSupplierContact = new System.Windows.Forms.TextBox();
             this.lblSupplierContact = new System.Windows.Forms.Label();
@@ -101,6 +114,8 @@
             this.nudInitialStock = new System.Windows.Forms.NumericUpDown();
             this.lblInitialStock = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnEditItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.txtItemPrice = new System.Windows.Forms.TextBox();
             this.lblItemPrice = new System.Windows.Forms.Label();
@@ -110,7 +125,6 @@
             this.lblItemName = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IcoUser)).BeginInit();
             this.pnlContent.SuspendLayout();
             this.pnlUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -130,7 +144,6 @@
             this.pnlSidebar.Controls.Add(this.btnNavSupplier);
             this.pnlSidebar.Controls.Add(this.btnNavCategory);
             this.pnlSidebar.Controls.Add(this.btnNavUsers);
-            this.pnlSidebar.Controls.Add(this.IcoUser);
             this.pnlSidebar.Controls.Add(this.lblSidebarTitle);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
@@ -151,7 +164,7 @@
             this.btnNavItems.Location = new System.Drawing.Point(0, 345);
             this.btnNavItems.Margin = new System.Windows.Forms.Padding(4);
             this.btnNavItems.Name = "btnNavItems";
-            this.btnNavItems.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
+            this.btnNavItems.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnNavItems.Size = new System.Drawing.Size(333, 74);
             this.btnNavItems.TabIndex = 4;
             this.btnNavItems.Text = "Items";
@@ -171,7 +184,7 @@
             this.btnNavSupplier.Location = new System.Drawing.Point(0, 271);
             this.btnNavSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.btnNavSupplier.Name = "btnNavSupplier";
-            this.btnNavSupplier.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
+            this.btnNavSupplier.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnNavSupplier.Size = new System.Drawing.Size(333, 74);
             this.btnNavSupplier.TabIndex = 3;
             this.btnNavSupplier.Text = "Supplier";
@@ -191,7 +204,7 @@
             this.btnNavCategory.Location = new System.Drawing.Point(0, 197);
             this.btnNavCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnNavCategory.Name = "btnNavCategory";
-            this.btnNavCategory.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
+            this.btnNavCategory.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnNavCategory.Size = new System.Drawing.Size(333, 74);
             this.btnNavCategory.TabIndex = 2;
             this.btnNavCategory.Text = "Item Category";
@@ -211,24 +224,13 @@
             this.btnNavUsers.Location = new System.Drawing.Point(0, 123);
             this.btnNavUsers.Margin = new System.Windows.Forms.Padding(4);
             this.btnNavUsers.Name = "btnNavUsers";
-            this.btnNavUsers.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
+            this.btnNavUsers.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnNavUsers.Size = new System.Drawing.Size(333, 74);
             this.btnNavUsers.TabIndex = 1;
             this.btnNavUsers.Text = "Users";
             this.btnNavUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNavUsers.UseVisualStyleBackColor = false;
             this.btnNavUsers.Click += new System.EventHandler(this.btnNavUsers_Click);
-            // 
-            // IcoUser
-            // 
-            this.IcoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.IcoUser.Image = global::POS.Properties.Resources.User;
-            this.IcoUser.Location = new System.Drawing.Point(32, 123);
-            this.IcoUser.Name = "IcoUser";
-            this.IcoUser.Size = new System.Drawing.Size(50, 50);
-            this.IcoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IcoUser.TabIndex = 8;
-            this.IcoUser.TabStop = false;
             // 
             // lblSidebarTitle
             // 
@@ -261,6 +263,8 @@
             // 
             this.pnlUsers.Controls.Add(this.button1);
             this.pnlUsers.Controls.Add(this.dgvUsers);
+            this.pnlUsers.Controls.Add(this.btnDeleteUser);
+            this.pnlUsers.Controls.Add(this.btnEditUser);
             this.pnlUsers.Controls.Add(this.btnAddUser);
             this.pnlUsers.Controls.Add(this.txtUserPassword);
             this.pnlUsers.Controls.Add(this.lblUserPassword);
@@ -297,9 +301,42 @@
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(978, 615);
             this.dgvUsers.TabIndex = 5;
-            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
+            this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnDeleteUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteUser.Location = new System.Drawing.Point(935, 49);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(177, 43);
+            this.btnDeleteUser.TabIndex = 6;
+            this.btnDeleteUser.Text = "Delete User";
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditUser.ForeColor = System.Drawing.Color.White;
+            this.btnEditUser.Location = new System.Drawing.Point(752, 49);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(177, 43);
+            this.btnEditUser.TabIndex = 5;
+            this.btnEditUser.Text = "Edit User";
+            this.btnEditUser.UseVisualStyleBackColor = false;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnAddUser
             // 
@@ -361,6 +398,8 @@
             // pnlCategory
             // 
             this.pnlCategory.Controls.Add(this.dgvCategory);
+            this.pnlCategory.Controls.Add(this.btnDeleteCategory);
+            this.pnlCategory.Controls.Add(this.btnEditCategory);
             this.pnlCategory.Controls.Add(this.btnAddCategory);
             this.pnlCategory.Controls.Add(this.txtCategoryName);
             this.pnlCategory.Controls.Add(this.lblCategoryName);
@@ -386,8 +425,42 @@
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.ReadOnly = true;
             this.dgvCategory.RowHeadersWidth = 51;
+            this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategory.Size = new System.Drawing.Size(1067, 652);
             this.dgvCategory.TabIndex = 3;
+            this.dgvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnDeleteCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteCategory.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(894, 25);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(200, 43);
+            this.btnDeleteCategory.TabIndex = 5;
+            this.btnDeleteCategory.Text = "Delete Category";
+            this.btnDeleteCategory.UseVisualStyleBackColor = false;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCategory.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditCategory.ForeColor = System.Drawing.Color.White;
+            this.btnEditCategory.Location = new System.Drawing.Point(686, 25);
+            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(200, 43);
+            this.btnEditCategory.TabIndex = 4;
+            this.btnEditCategory.Text = "Edit Category";
+            this.btnEditCategory.UseVisualStyleBackColor = false;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -399,9 +472,9 @@
             this.btnAddCategory.Location = new System.Drawing.Point(604, 25);
             this.btnAddCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(200, 43);
+            this.btnAddCategory.Size = new System.Drawing.Size(75, 43);
             this.btnAddCategory.TabIndex = 2;
-            this.btnAddCategory.Text = "Add Category";
+            this.btnAddCategory.Text = "Add";
             this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
@@ -428,6 +501,8 @@
             // pnlSupplier
             // 
             this.pnlSupplier.Controls.Add(this.dgvSupplier);
+            this.pnlSupplier.Controls.Add(this.btnDeleteSupplier);
+            this.pnlSupplier.Controls.Add(this.btnEditSupplier);
             this.pnlSupplier.Controls.Add(this.btnAddSupplier);
             this.pnlSupplier.Controls.Add(this.txtSupplierContact);
             this.pnlSupplier.Controls.Add(this.lblSupplierContact);
@@ -457,8 +532,42 @@
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersWidth = 51;
+            this.dgvSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSupplier.Size = new System.Drawing.Size(1067, 578);
             this.dgvSupplier.TabIndex = 7;
+            this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
+            // 
+            // btnDeleteSupplier
+            // 
+            this.btnDeleteSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnDeleteSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(894, 74);
+            this.btnDeleteSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(200, 43);
+            this.btnDeleteSupplier.TabIndex = 9;
+            this.btnDeleteSupplier.Text = "Delete Supplier";
+            this.btnDeleteSupplier.UseVisualStyleBackColor = false;
+            this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
+            // 
+            // btnEditSupplier
+            // 
+            this.btnEditSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnEditSupplier.Location = new System.Drawing.Point(686, 74);
+            this.btnEditSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditSupplier.Name = "btnEditSupplier";
+            this.btnEditSupplier.Size = new System.Drawing.Size(200, 43);
+            this.btnEditSupplier.TabIndex = 8;
+            this.btnEditSupplier.Text = "Edit Supplier";
+            this.btnEditSupplier.UseVisualStyleBackColor = false;
+            this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
             // 
             // btnAddSupplier
             // 
@@ -470,9 +579,9 @@
             this.btnAddSupplier.Location = new System.Drawing.Point(604, 74);
             this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(200, 43);
+            this.btnAddSupplier.Size = new System.Drawing.Size(75, 43);
             this.btnAddSupplier.TabIndex = 6;
-            this.btnAddSupplier.Text = "Add Supplier";
+            this.btnAddSupplier.Text = "Add";
             this.btnAddSupplier.UseVisualStyleBackColor = false;
             this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
@@ -541,6 +650,8 @@
             this.pnlItems.Controls.Add(this.nudInitialStock);
             this.pnlItems.Controls.Add(this.lblInitialStock);
             this.pnlItems.Controls.Add(this.dgvItems);
+            this.pnlItems.Controls.Add(this.btnDeleteItem);
+            this.pnlItems.Controls.Add(this.btnEditItem);
             this.pnlItems.Controls.Add(this.btnAddItem);
             this.pnlItems.Controls.Add(this.txtItemPrice);
             this.pnlItems.Controls.Add(this.lblItemPrice);
@@ -594,8 +705,42 @@
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.RowHeadersWidth = 51;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(1067, 483);
             this.dgvItems.TabIndex = 7;
+            this.dgvItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellClick);
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnDeleteItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteItem.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteItem.Location = new System.Drawing.Point(579, 212);
+            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(177, 43);
+            this.btnDeleteItem.TabIndex = 14;
+            this.btnDeleteItem.Text = "Delete Item";
+            this.btnDeleteItem.UseVisualStyleBackColor = false;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
+            // 
+            // btnEditItem
+            // 
+            this.btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditItem.ForeColor = System.Drawing.Color.White;
+            this.btnEditItem.Location = new System.Drawing.Point(396, 212);
+            this.btnEditItem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(177, 43);
+            this.btnEditItem.TabIndex = 13;
+            this.btnEditItem.Text = "Edit Item";
+            this.btnEditItem.UseVisualStyleBackColor = false;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
             // btnAddItem
             // 
@@ -692,7 +837,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Maintenance";
             this.pnlSidebar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.IcoUser)).EndInit();
             this.pnlContent.ResumeLayout(false);
             this.pnlUsers.ResumeLayout(false);
             this.pnlUsers.PerformLayout();
@@ -711,7 +855,6 @@
 
         }
 
-        private System.Windows.Forms.PictureBox IcoUser;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
