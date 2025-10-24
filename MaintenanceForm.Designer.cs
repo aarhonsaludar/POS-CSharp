@@ -48,10 +48,12 @@
         internal System.Windows.Forms.TextBox txtItemName;
         internal System.Windows.Forms.ComboBox cmbItemCategory;
         internal System.Windows.Forms.TextBox txtItemPrice;
+        internal System.Windows.Forms.NumericUpDown nudInitialStock;
         internal System.Windows.Forms.Button btnAddItem;
         internal System.Windows.Forms.Label lblItemName;
         internal System.Windows.Forms.Label lblItemCategory;
         internal System.Windows.Forms.Label lblItemPrice;
+        internal System.Windows.Forms.Label lblInitialStock;
 
         protected override void Dispose(bool disposing)
         {
@@ -96,6 +98,8 @@
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.lblSupplierName = new System.Windows.Forms.Label();
             this.pnlItems = new System.Windows.Forms.Panel();
+            this.nudInitialStock = new System.Windows.Forms.NumericUpDown();
+            this.lblInitialStock = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.txtItemPrice = new System.Windows.Forms.TextBox();
@@ -115,6 +119,7 @@
             this.pnlSupplier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             this.pnlItems.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInitialStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -533,6 +538,8 @@
             // 
             // pnlItems
             // 
+            this.pnlItems.Controls.Add(this.nudInitialStock);
+            this.pnlItems.Controls.Add(this.lblInitialStock);
             this.pnlItems.Controls.Add(this.dgvItems);
             this.pnlItems.Controls.Add(this.btnAddItem);
             this.pnlItems.Controls.Add(this.txtItemPrice);
@@ -549,6 +556,30 @@
             this.pnlItems.TabIndex = 3;
             this.pnlItems.Visible = false;
             // 
+            // nudInitialStock
+            // 
+            this.nudInitialStock.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.nudInitialStock.Location = new System.Drawing.Point(213, 170);
+            this.nudInitialStock.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudInitialStock.Name = "nudInitialStock";
+            this.nudInitialStock.Size = new System.Drawing.Size(177, 30);
+            this.nudInitialStock.TabIndex = 11;
+            // 
+            // lblInitialStock
+            // 
+            this.lblInitialStock.AutoSize = true;
+            this.lblInitialStock.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblInitialStock.Location = new System.Drawing.Point(27, 172);
+            this.lblInitialStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInitialStock.Name = "lblInitialStock";
+            this.lblInitialStock.Size = new System.Drawing.Size(104, 23);
+            this.lblInitialStock.TabIndex = 10;
+            this.lblInitialStock.Text = "Initial Stock:";
+            // 
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
@@ -558,12 +589,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvItems.BackgroundColor = System.Drawing.Color.White;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Location = new System.Drawing.Point(27, 222);
+            this.dgvItems.Location = new System.Drawing.Point(27, 268);
             this.dgvItems.Margin = new System.Windows.Forms.Padding(4);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.RowHeadersWidth = 51;
-            this.dgvItems.Size = new System.Drawing.Size(1067, 529);
+            this.dgvItems.Size = new System.Drawing.Size(1067, 483);
             this.dgvItems.TabIndex = 7;
             // 
             // btnAddItem
@@ -573,7 +604,7 @@
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAddItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddItem.Location = new System.Drawing.Point(213, 166);
+            this.btnAddItem.Location = new System.Drawing.Point(213, 212);
             this.btnAddItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(177, 43);
@@ -674,6 +705,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             this.pnlItems.ResumeLayout(false);
             this.pnlItems.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInitialStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
 

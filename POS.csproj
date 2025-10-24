@@ -124,7 +124,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupRestoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupRestoreForm.Designer.cs">
+      <DependentUpon>BackupRestoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="DeliveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliveryForm.Designer.cs">
+      <DependentUpon>DeliveryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMonitoringForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMonitoringForm.Designer.cs">
+      <DependentUpon>InventoryMonitoringForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +161,14 @@
     <Compile Include="MaintenanceForm.Designer.cs">
       <DependentUpon>MaintenanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NavigationHelper.cs" />
+    <Compile Include="NavigationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NavigationPanel.Designer.cs">
+      <DependentUpon>NavigationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="POSForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +177,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesMonitoringForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesMonitoringForm.Designer.cs">
+      <DependentUpon>SalesMonitoringForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,7 +205,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DOES_IT_FOLLOW_SETUP.md" />
+    <None Include="FEATURE_INITIAL_STOCK.md" />
+    <None Include="FIXES_SUMMARY.md" />
+    <None Include="IMPLEMENTATION_SUMMARY.md" />
+    <None Include="IMPROVEMENTS_SUMMARY.md" />
+    <None Include="NAVIGATION_COMPLETE.md" />
+    <None Include="NAVIGATION_ENHANCEMENT_GUIDE.md" />
+    <None Include="NAVIGATION_FLOW.md" />
+    <None Include="NAVIGATION_IMPLEMENTATION_STATUS.md" />
     <None Include="packages.config" />
+    <None Include="PROJECT_STATUS_REPORT.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,11 +225,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="README_IMPROVEMENTS.md" />
+    <None Include="SECURITY_NAVIGATION_IMPROVEMENTS.md" />
+    <None Include="TESTING_GUIDE.md" />
+    <None Include="VERIFICATION_COMPLETE.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QUICK_START.md" />
     <None Include="Resources\GASTOS APP.png" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +245,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="IMAGES\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="database_setup.sql" />
+    <Content Include="password_migration.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

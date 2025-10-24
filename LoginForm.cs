@@ -9,6 +9,8 @@ namespace POS
         public LoginForm()
         {
             InitializeComponent();
+            // Center form on screen
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,23 +29,63 @@ namespace POS
                 using (MySqlConnection conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT COUNT(*) FROM Users WHERE username = @username AND password = @password";
+                    string query = "SELECT password FROM Users WHERE username = @username";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    object result = cmd.ExecuteScalar();
 
-                    if (count > 0)
+                    if (result != null)
                     {
-                        MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MainForm mainForm = new MainForm();
-                        mainForm.Show();
-                        this.Hide();
+                        string storedPassword = result.ToString();
+                        bool isAuthenticated = false;
+
+                        // Check if password is hashed or plain text (for backward compatibility)
+                        if (PasswordHelper.IsPlainText(storedPassword))
+                        {
+                            // Legacy plain text password - direct comparison
+                            if (password == storedPassword)
+                            {
+                                isAuthenticated = true;
+
+                                // Auto-upgrade to hashed password
+                                string hashedPassword = PasswordHelper.HashPassword(password);
+                                string updateQuery = "UPDATE Users SET password = @hashedPassword WHERE username = @username";
+                                MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
+                                updateCmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
+                                updateCmd.Parameters.AddWithValue("@username", username);
+                                updateCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // Hashed password - verify using PasswordHelper
+                            isAuthenticated = PasswordHelper.VerifyPassword(password, storedPassword);
+                        }
+
+                        if (isAuthenticated)
+                        {
+                            // Clear password field for security
+                            txtPassword.Clear();
+                            
+                            // Hide login form and show main form
+                            this.Hide();
+                            MainForm mainForm = new MainForm();
+                            mainForm.FormClosed += (s, args) => this.Close(); // Close login when main closes
+                            mainForm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtPassword.Clear();
+                            txtPassword.Focus();
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Invalid username or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPassword.Clear();
+                        txtPassword.Focus();
                     }
                 }
             }
@@ -77,9 +119,11 @@ namespace POS
         {
 
         }
+
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); // Forces all message loops to end and closes the app
+            // Exit application when login form is closed
+            Application.Exit();
         }
     }
 }
